@@ -1,0 +1,97 @@
+<!-- Form cha calender -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Selector</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <form action="/selected_date" method="POST">
+        <label for="datepicker">Select Date:</label>
+        <input type="text" id="datepicker" name="selected_date">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $(function() {
+            $("#datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+    </script>
+</body>
+</html>
+ -->
+
+
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Calendar with Events</title>
+     <!-- Include necessary CSS and JavaScript files -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ </head>
+ <body>
+     <div id="calendar"></div>
+     <div id="events"></div>
+     <input type="text" id="datepicker" placeholder="Select Date">
+ 
+     <script>
+         $(document).ready(function() {
+             $('#calendar').fullCalendar({
+                 selectable: true,
+                 select: function(start, end) {
+                     var selectedDate = start.format('YYYY-MM-DD');
+                     displayEvents(selectedDate);
+                 }
+             });
+ 
+             $("#datepicker").datepicker({
+                 dateFormat: 'yy-mm-dd',
+                 onSelect: function(dateText, inst) {
+                     displayEvents(dateText);
+                 }
+             });
+ 
+             function displayEvents(selectedDate) {
+                 $.ajax({
+                     url: '/events',
+                     type: 'GET',
+                     data: {date: selectedDate},
+                     success: function(events) {
+                         var eventHtml = '<h2>Events for ' + selectedDate + '</h2>';
+                         if (events.length > 0) {
+                             eventHtml += '<ul>';
+                             events.forEach(function(event) {
+                                 eventHtml += '<li><strong>Venue:</strong> ' + event.venue + '</li>';
+                                eventHtml += '<li><strong>Event Name:</strong> ' + event.event_name + '</li>';
+                                eventHtml += '<li><strong>Start Time:</strong> ' + event.start_time + '</li>';
+                                eventHtml += '<li><strong>End Time:</strong> ' + event.end_time + '</li>';
+                                eventHtml += '<li><strong>Date:</strong> ' + event.date + '</li>';
+                             });
+                             eventHtml += '</ul>';
+                         } else {
+                             eventHtml += '<p>No events found for this date.</p>';
+                         }
+                         $('#events').html(eventHtml);
+                     }
+                 });
+             }
+         });
+     </script>
+ </body>
+ </html>
+ 
