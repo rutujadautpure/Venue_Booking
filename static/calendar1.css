@@ -139,6 +139,7 @@ header .current-date{
     align-items: center;
     flex-direction: column;
     gap: 25px;
+    
 }
 
 .event{
