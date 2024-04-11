@@ -52,7 +52,7 @@ class Venue(db.Model):
     features = db.Column(db.String(255))
     imgfile = db.Column(db.String(255))
 
-@app.route("/")
+@app.route("/home")
 def home():
     venue = Venue.query.filter_by().all()
     last = math.ceil(len(venue)/int(params['no_of_posts']))
