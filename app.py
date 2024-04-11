@@ -117,6 +117,8 @@ def addvenue():
     return render_template('addvenue.html', params=params)
 
 
+
+
 @app.route("/analytics")
 def analytics():
     total_venues = Venue.query.count()
