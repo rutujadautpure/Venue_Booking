@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,3 +15,23 @@
     </form>
 </body>
 </html>
+ -->
+
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Enter OTP</title>
+ </head>
+ <body>
+     <h1>Enter OTP</h1>
+     <form action="/verify_otp" method="post">
+         <input type="text" name="otp" placeholder="Enter OTP">
+         <input type="hidden" name="email" value="{{ email }}">  <!-- Hidden input field to pass email -->
+         <button type="submit">Verify OTP</button>
+     </form>
+ </body>
+ </html>

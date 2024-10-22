@@ -13,18 +13,20 @@
   <nav>
     <div class="navbar">
       <!-- <i class='bx bx-menu'></i> -->
-      <div class="logo"><a href="#">CodingLab</a></div>
+      <div class="logo"><a href="#">Hack huslters</a></div>
       <div class="nav-links">
         <div class="sidebar-logo">
-          <span class="logo-name">CodingLab</span>
+          <span class="logo-name">Hack hustlers</span>
           <i class='bx bx-x' ></i>
         </div>
         <ul class="links">
-            <li><a href="#">Venues</a></li>
-            <li><a href="#">Requests</a></li>
-            <li><a href="#">Calender</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Manage Users</a></li>
+            <li><a href="{{url_for('admindashboard')}}">HOME</a></li>
+            <li><a href="{{url_for('home')}}">Venues</a></li>
+            <li><a href="{{url_for('hall_requests')}}">Requests</a></li>
+            <li><a href="{{url_for('calendar_admin')}}">Calender</a></li> 
+            <!-- admin calender .... this niieds to be updated -->
+            <li><a href="{{url_for('analytics')}}">Analytics</a></li>
+            <li><a href="{{url_for('go_to_add_user')}}">Manage Users</a></li>
         </ul>
       </div>
       

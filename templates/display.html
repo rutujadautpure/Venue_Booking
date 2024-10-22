@@ -57,6 +57,7 @@
                     <th>Event Name</th>
                     <th>Manager Name</th>
                     <th>Event Date</th>
+                    <th>Submitted Date</th>
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Status</th>
@@ -69,6 +70,7 @@
                     <td>{{ request.event_name }}</td>
                     <td>{{ request.manager_name }}</td>
                     <td>{{ request.event_date }}</td>
+                    <td>{{ request.request }}</td>
                     <td>{{ request.start_time }}</td>
                     <td>{{ request.end_time }}</td>
                     <td>{{ request.status }}</td>
@@ -77,13 +79,17 @@
                             <a href="{{ url_for('view_event', event_id=request.sno) }}" class="btn btn-primary">View</a>
                             
                              
+                          
                             {% if request.status == 'pending' %}
-    <button onclick="handleReject({{ request.sno }})" class="btn btn-danger">Reject</button>
-    <button onclick="handleAccept({{ request.sno }})" class="btn btn-success">Accept</button>
-    {% else %}
-    <button class="btn btn-danger" disabled>Reject</button>
-    <button class="btn btn-success" disabled>Accept</button>
-    {% endif %}
+                            <button onclick="handleReject({{ request.sno }})" class="btn btn-danger">Reject</button>
+                            <button onclick="handleAccept({{ request.sno }})" class="btn btn-success">Accept</button>
+                            {% elif request.status == 'Accepted' %}
+                            <button class="btn btn-danger" >Reject</button>
+                            <button class="btn btn-success" disabled>Accept</button>
+                            {% else %}
+                            <button class="btn btn-danger" disabled>Reject</button>
+                            <button class="btn btn-success" disabled>Accept</button>
+                            {% endif %}
                            
                         </div>
                     </td>

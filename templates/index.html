@@ -15,6 +15,16 @@
 <input type="radio" id="registerForm" name="formToggle">
 <input type="radio" id="forgotForm" name="formToggle">
 
+
+<div class="superad">
+  <form action="/superadminloginshow" method="post">
+    <button class="btn" id="superAdminLoginBtn" type="submit">
+      Authority Login
+    </button>
+  </form>
+</div>
+
+
 <div class="wrapper" id="loginFormContent">
   <form action="/login" method="POST"> 
     <h1>Login</h1>
@@ -100,10 +110,10 @@
         <input type="email" name="email" placeholder="Email" required> <!-- Added input field for email -->
       </div>
       <div class="link">
-        <button type="submit" class="btn"><a href="/templates/file4(OTP).html">Send Request</a></button>
+          <button type="submit" class="btn"><p>Send Request</p></button>
       </div>
       <div class="link">
-        <p>Are you an admin? <a href="#" id="adminLoginLink">Admin Login</a></p> <!-- Changed label to a link -->
+        <p>Are you an admin? <a href="{{url_for('my_index')}}" id="adminLoginLink">Admin Login</a></p> <!-- Changed label to a link -->
       </div>
       {% with messages = get_flashed_messages() %}
       {% if messages %}

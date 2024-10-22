@@ -11,7 +11,7 @@ body{
   padding: 0 10px;
   justify-content: center;
   min-height: 100vh;
-  background: #c591d9;
+  background: #d5d5d5;
 }
 .wrapper{
   width: 450px;
@@ -95,7 +95,7 @@ header .current-date{
   transform: translate(-50%, -50%);
 }
 .days li.active::before{
-  background: #9B59B6;
+  background: #40a7ec;
 }
 .days li:not(.active):hover::before{
   background: #f2f2f2;
@@ -113,13 +113,13 @@ header .current-date{
     position: fixed;
     left: 0;
     top: 0;
-    width: 320px;
+    width: 350px;
     height: 100%;
     background-color: #f2f2f2;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
-    z-index: 1000; /* Ensure the sidebar stays above other content */
+    z-index: 0; /* Ensure the sidebar stays above other content */
 }
 
 .sidebar h2 {
@@ -139,14 +139,16 @@ header .current-date{
     align-items: center;
     flex-direction: column;
     gap: 25px;
+    margin-top: 90px;
     
 }
-
-.event{
-    background-color: #c591d9; 
-    padding: 10px;
-    max-width: 500px;
-    width: 250px;
-    
-    text-align: center;
+.event {
+  background-color: #bdd8e7;
+  padding: 10px;
+  max-width: 500px;
+  width: 250px;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow */
 }
